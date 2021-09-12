@@ -57,6 +57,7 @@ android {
         signingConfig signingConfigs.debug
         applicationId 'com.qualcomm.ftcrobotcontroller'
         minSdkVersion 23
+        //noinspection ExpiredTargetSdkVersion because google I don't care
         targetSdkVersion 28
         multiDexEnabled !useProguard
 
@@ -96,7 +97,7 @@ android {
             signingConfig signingConfigs.release
 
             ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a"
+                abiFilters "armeabi-v7a"
             }
 
             if (useProguard) {
@@ -111,7 +112,7 @@ android {
             jniDebuggable true
             renderscriptDebuggable true
             ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a"
+                abiFilters "armeabi-v7a"
             }
 
             if (useProguard) {
@@ -139,5 +140,7 @@ repositories {
     flatDir {
         dirs rootProject.file('libs')
     }
+    //noinspection JcenterRepositoryObsolete
+    jcenter()
 }
 
